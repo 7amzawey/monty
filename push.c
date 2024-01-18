@@ -36,7 +36,7 @@ void push(stack_t **stack, unsigned int line_number, const char *n)
  * pall - prints all the elements
  * @stack: is a double pointer to the head of the stack
  */
-void pall(stack_t **stack, unsigned int line number)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
@@ -44,7 +44,7 @@ void pall(stack_t **stack, unsigned int line number)
 	
 	while (temp != NULL)
 	{
-	print("%d\n", temp->n);
+	printf("%d\n", temp->n);
 	temp = temp->next;
 	}
 }
