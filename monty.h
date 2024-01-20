@@ -39,4 +39,8 @@ typedef struct instruction_s
 } instruction_t;
 void push(stack_t **stack, unsigned int line_number, const char *n);
 void pall(stack_t **stack, unsigned int line_number);
+int error_argc(void);
+int error_opend(void);
+int error_push(void);
+int error_inst(void);
 #endif
