@@ -15,7 +15,7 @@ int add(stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	n = (*stack)->n + (*stack)->next->n;
-	
+
 	temp = *stack;
 	(*stack) = (*stack)->next;
 	free(temp);

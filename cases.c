@@ -20,6 +20,8 @@ void cases(stack_t **stack, int line_number, char *opcode, char *argument)
 		add(stack);
 	else if (strcmp(opcode, "swap") == 0)
 		swap(stack);
+	else if (strcmp(opcode, "nop") == 0)
+		nop(stack, line_number);
 	else
 		error_inst(line_number, opcode);
 }
