@@ -24,6 +24,7 @@ void push(stack_t **stack, unsigned int line_number, const char *n)
 	if (!new)
 	{
 		fprintf(stderr, "Eroor: malloc failed\n");
+		free(new);
 		exit(EXIT_FAILURE);
 	}
 	new->n = num;
@@ -48,4 +49,5 @@ void pall(stack_t **stack, unsigned int line_number)
 	printf("%d\n", temp->n);
 	temp = temp->next;
 	}
+	free(temp);
 }
