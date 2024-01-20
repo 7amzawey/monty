@@ -39,6 +39,10 @@ int main(int argc, char *argv[])
 			pall(&stack, line_number);
 		else if (strcmp(opcode, "pint") == 0)
 			pint(&stack);
+		else if (strcmp(opcode, "pop") == 0)
+			pop(&stack);
+		else if (strcmp(opcode, "add") == 0)
+			add(&stack);
 		else
 			error_inst(line_number, opcode);
 		line_number++;
