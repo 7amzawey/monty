@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t bytes;
-	stack_t *stack = NULL;
 	unsigned int line_number = 1;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 		error_argc();
@@ -23,28 +23,14 @@ int main(int argc, char *argv[])
 		error_open(argv[1]);
 	while ((bytes = getline(&line, &len, file)) != -1)
 	{
-		char *opcode, *argument;
+		char *opcode;
+		char *argument;
 
 		opcode = strtok(line, " \n\t\r");
 		argument = strtok(NULL, " \n\t\r");
-
-		if (opcode == NULL)
+		if (opcode == NULL && argument == NULL)
 			continue;
-		if (strcmp(opcode, "push") == 0)
-			if (argument == NULL)
-				error_push(line_number);
-			else
-				push(&stack, line_number, argument);
-		else if (strcmp(opcode, "pall") == 0)
-			pall(&stack, line_number);
-		else if (strcmp(opcode, "pint") == 0)
-			pint(&stack);
-		else if (strcmp(opcode, "pop") == 0)
-			pop(&stack);
-		else if (strcmp(opcode, "add") == 0)
-			add(&stack);
-		else
-			error_inst(line_number, opcode);
+		cases(&stack, line_number, opcode, argument);
 		line_number++;
 	}
 	free(line);

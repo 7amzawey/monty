@@ -46,4 +46,6 @@ int error_inst(int line_number, char *opcode);
 int pint(stack_t **stack);
 int pop(stack_t **stack);
 int add(stack_t **stack);
+int swap(stack_t **stack);
+void cases(stack_t **stack, int line_number, char *opcode, char *argument);
 #endif
