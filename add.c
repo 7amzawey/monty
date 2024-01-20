@@ -7,6 +7,7 @@
 int add(stack_t **stack)
 {
 	int n;
+	stack_t *temp;
 
 	if ((*stack)->next == NULL)
 	{
@@ -14,8 +15,10 @@ int add(stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	n = (*stack)->n + (*stack)->next->n;
-
+	
+	temp = *stack;
 	(*stack) = (*stack)->next;
+	free(temp);
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 	(*stack)->n = n;
