@@ -16,11 +16,11 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 1;
 
 	if (argc != 2)
-		error_argc(void);
+		error_argc();
 	file = fopen(argv[1], "r");
 
 	if (file == NULL)
-		error_open(void);
+		error_open(argv[1]);
 	while ((bytes = getline(&line, &len, file)) != -1)
 	{
 		char *opcode, *argument;
@@ -32,12 +32,13 @@ int main(int argc, char *argv[])
 			continue;
 		if (strcmp(opcode, "push") == 0)
 			if (argument == NULL)
-				error_push(void);
-			push(&stack, line_number, argument);
+				error_push(line_number);
+			else
+				push(&stack, line_number, argument);
 		else if (strcmp(opcode, "pall") == 0)
 			pall(&stack, line_number);
 		else
-			error_inst(void);
+			error_inst(line_number, opcode);
 		line_number++;
 	}
 	free(line);

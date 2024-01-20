@@ -40,7 +40,7 @@ typedef struct instruction_s
 void push(stack_t **stack, unsigned int line_number, const char *n);
 void pall(stack_t **stack, unsigned int line_number);
 int error_argc(void);
-int error_opend(void);
-int error_push(void);
-int error_inst(void);
+int error_open(char *argument);
+int error_push(int line_number);
+int error_inst(int line_number, char *opcode);
 #endif
