@@ -9,6 +9,7 @@ void push(stack_t **stack, unsigned int line_number, const char *n)
 {
 	stack_t *new;
 	int num, i;
+
 	for (i = 0; n[i]; i++)
 	{
 		if (isdigit(n[i]) == 0)
@@ -35,13 +36,14 @@ void push(stack_t **stack, unsigned int line_number, const char *n)
 /**
  * pall - prints all the elements
  * @stack: is a double pointer to the head of the stack
+ * @line_number: is the line number
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
 	(void)line_number;
-	
+
 	while (temp != NULL)
 	{
 	printf("%d\n", temp->n);
