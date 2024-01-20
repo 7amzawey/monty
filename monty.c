@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 				push(&stack, line_number, argument);
 		else if (strcmp(opcode, "pall") == 0)
 			pall(&stack, line_number);
+		else if (strcmp(opcode, "pint") == 0)
+			pint(&stack);
 		else
 			error_inst(line_number, opcode);
 		line_number++;
