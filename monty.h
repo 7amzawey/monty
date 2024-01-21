@@ -56,5 +56,5 @@ int mod(stack_t **stack, int line_number);
 void comment(stack_t **stack, int line_number);
 int pchar(stack_t **stack, int line_number);
 int pstr(stack_t **stack);
-
+char **token(char *line);
 #endif

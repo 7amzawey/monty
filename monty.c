@@ -23,22 +23,23 @@ int main(int argc, char *argv[])
 		error_open(argv[1]);
 	while ((bytes = getline(&line, &len, file)) != -1)
 	{
-		char *instruction;
+		char **instruction;
 		char *opcode;
 		char *argument;
+		int i = 0;
 
 		if (line[0] == '#')
 			continue;
-		instruction = strtok(line, ";+");
-		while (instruction != NULL)
+		instruction = token(line);
+		while (instruction[i] != NULL)
 		{
-			opcode = strtok(instruction, " \n\t\r");
+			opcode = strtok(instruction[i], " \n\t\r");
 			argument = strtok(NULL, " \n\t\r");
 			if (opcode != NULL)
 				cases(&stack, line_number, opcode, argument);
-			instruction = strtok(NULL, ";+");
-			line_number++;
-		}
+			i++;
+			line_number++; }
+		free(instruction);
 	}
 	while (stack != NULL)
 	{
