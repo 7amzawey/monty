@@ -14,6 +14,5 @@ int pint(stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", temp->n);
-	free(temp);
 	return (0);
 }

@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 		char *opcode;
 		char *argument;
 
-		opcode = strtok(line, " \n\t\r");
-		argument = strtok(NULL, " \n\t\r");
+		opcode = strtok(line, " \n;\t\r");
+		argument = strtok(NULL, " \n;\t\r");
 		if (opcode == NULL && argument == NULL)
 			continue;
 		cases(&stack, line_number, opcode, argument);
