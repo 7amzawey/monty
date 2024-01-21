@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		char *instruction;
 		char *opcode;
 		char *argument;
-		
+
 		instruction = strtok(line, ";");
 		while (instruction != NULL)
 		{
