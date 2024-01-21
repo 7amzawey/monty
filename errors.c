@@ -15,7 +15,7 @@ int error_argc(void)
  */
 int error_open(char *argument)
 {
-		fprintf(stderr, "Error: Can't open file %s\n"r argument);
+		fprintf(stderr, "Error: Can't open file %s\n", argument);
 		exit(EXIT_FAILURE);
 }
 /**
