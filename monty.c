@@ -27,17 +27,17 @@ int main(int argc, char *argv[])
 		char *opcode;
 		char *argument;
 
+		if (line[0] == '#')
+			continue;
 		instruction = strtok(line, ";");
 		while (instruction != NULL)
 		{
 			opcode = strtok(instruction, " \n\t\r");
 			argument = strtok(NULL, " \n\t\r");
 			if (opcode != NULL)
-			{
 				cases(&stack, line_number, opcode, argument);
-			}
-				instruction = strtok(NULL, ";");
-				line_number++;
+			instruction = strtok(NULL, ";");
+			line_number++;
 		}
 	}
 	while (stack != NULL)
