@@ -23,15 +23,22 @@ int main(int argc, char *argv[])
 		error_open(argv[1]);
 	while ((bytes = getline(&line, &len, file)) != -1)
 	{
+		char *instruction;
 		char *opcode;
 		char *argument;
-
-		opcode = strtok(line, " \n;\t\r");
-		argument = strtok(NULL, " \n;\t\r");
-		if (opcode == NULL && argument == NULL)
-			continue;
-		cases(&stack, line_number, opcode, argument);
-		line_number++;
+		
+		instruction = strtok(line, ";");
+		while (instruction != NULL)
+		{
+			opcode = strtok(instruction, " \n\t\r");
+			argument = strtok(NULL, " \n\t\r");
+			if (opcode != NULL)
+			{
+				cases(&stack, line_number, opcode, argument);
+			}
+				instruction = strtok(NULL, ";");
+				line_number++;
+		}
 	}
 	while (stack != NULL)
 	{
