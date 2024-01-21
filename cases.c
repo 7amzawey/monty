@@ -31,7 +31,7 @@ void cases(stack_t **stack, int line_number, char *opcode, char *argument)
 	else if (strcmp(opcode, "mod") == 0)
 		mod(stack, line_number);
 	else if (strcmp(opcode, "#") == 0)
-		line_number++;
+		comment(stack, line_number);
 	else
 		error_inst(line_number, opcode);
 }
