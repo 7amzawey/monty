@@ -34,6 +34,8 @@ void cases(stack_t **stack, int line_number, char *opcode, char *argument)
 		comment(stack, line_number);
 	else if (strcmp(opcode, "pchar") == 0)
 		pchar(stack, line_number);
+	else if (strcmp(opcode, "pstr") == 0)
+		pstr(stack);
 	else
 		error_inst(line_number, opcode);
 }
