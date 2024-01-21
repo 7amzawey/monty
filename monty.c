@@ -29,14 +29,14 @@ int main(int argc, char *argv[])
 
 		if (line[0] == '#')
 			continue;
-		instruction = strtok(line, ";");
+		instruction = strtok(line, ";+");
 		while (instruction != NULL)
 		{
 			opcode = strtok(instruction, " \n\t\r");
 			argument = strtok(NULL, " \n\t\r");
 			if (opcode != NULL)
 				cases(&stack, line_number, opcode, argument);
-			instruction = strtok(NULL, ";");
+			instruction = strtok(NULL, ";+");
 			line_number++;
 		}
 	}
