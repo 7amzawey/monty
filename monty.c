@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 		cases(&stack, line_number, opcode, argument);
 		line_number++;
 	}
+	if (stack != NULL)
+		pop(&stack);
 	free(line);
 	fclose(file);
 	return (EXIT_SUCCESS);
