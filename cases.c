@@ -26,6 +26,8 @@ void cases(stack_t **stack, int line_number, char *opcode, char *argument)
 		sub(stack, line_number);
 	else if (strcmp(opcode, "div") == 0)
 		divide(stack, line_number);
+	else if (strcmp(opcode, "mul") == 0)
+		mul(stack, line_number);
 	else
 		error_inst(line_number, opcode);
 }

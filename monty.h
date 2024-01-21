@@ -51,6 +51,6 @@ void cases(stack_t **stack, int line_number, char *opcode, char *argument);
 void nop(stack_t **stack, int line_number);
 int sub(stack_t **stack, int line_number);
 int divide(stack_t **stack, int line_number);
-int multiply(stack_t **stack, int line_number);
+int mul(stack_t **stack, int line_number);
 
 #endif
